@@ -3,6 +3,7 @@ var extend = function(obj1, obj2) {
     obj1[key] = obj2[key];
   }
 };
+
 var Stack = function(value) {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
@@ -22,8 +23,8 @@ var stackMethods = {
     top ++;
   },
   pop: function () {
-    var result = storage[top] = value;
-    top --;
+    var result = storage[top];
+    delete storage[top];
     return result;
   },
   size: function () {
