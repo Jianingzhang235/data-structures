@@ -23,6 +23,7 @@ var stackMethods = {
     top ++;
   },
   pop: function () {
+    top --;
     var result = storage[top];
     delete storage[top];
     return result;
