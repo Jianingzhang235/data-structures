@@ -1,10 +1,10 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var instance = {};
-  instance = Object.create(stackMethods);
+
+  var instance = Object.create(stackMethods);
   instance.storage = {};
-  instance.top = {};
+  instance.top = 0;
   return instance;
 };
 var stackMethods = {};
