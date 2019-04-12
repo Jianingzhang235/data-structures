@@ -1,37 +1,39 @@
-var extend = function(obj1, obj2) {
-  for(var key  in obj2) {
-    obj1[key] = obj2[key];
-  }
-};
 
-var Stack = function(value) {
+var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var top = 0;
-  var storage = {
-    value : value
-
-  };
-
+  var storage = {};
+  storage.top = 0;
   extend(storage, stackMethods);
   return storage;
 };
 
+var extend = function(obj, methods){
+  for (var key in methods) {
+    obj[key] = methods[key];
+  }
+};
+
 var stackMethods = {
-  push: function(value) {
-    storage[top] = value;
-    top ++;
+  push: function(value){
+    this.top ++;
+    // console.log(this.top + ' this.top')
+    // console.log(this.storage + ' this.storage')
+    console.log(storage + ' just storage')
+    console.log(this + ' this')
+    this.storage[this.top] = value;
+
   },
-  pop: function () {
-    top --;
-    var result = storage[top];
-    delete storage[top];
-    return result;
+  pop: function(){
+    this.top --
+    var item = this.storage[this.top];
+    delete this.storage[this.top];
+    return item;
   },
-  size: function () {
-    if (top <= 0) {
+  size: function(){
+    if (this.top <= 0) {
       return 0;
     }
-    return top;
+    return this.top;
   }
 };
