@@ -4,7 +4,7 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   var storage = {};
   storage.top = 0;
-  extend(storage, stackMethods);
+  extend(storage, stackMethods.methods);
   return storage;
 };
 
@@ -14,7 +14,8 @@ var extend = function(obj, methods){
   }
 };
 
-var stackMethods = {
+var stackMethods = {}
+stackMethods.methods = {
   push: function(value){
     this.top ++;
     // console.log(this.top + ' this.top')
@@ -36,4 +37,5 @@ var stackMethods = {
     }
     return this.top;
   }
+
 };
