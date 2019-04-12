@@ -1,41 +1,37 @@
-
-var Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
-  var storage = {};
-  storage.top = 0;
-  extend(storage, stackMethods.methods);
-  return storage;
+var Stack = function () {
+  var instance = {};
+  instance.storage = {};
+  instance.top = 0;
+  instance.push = stackMethods.push;
+  instance.pop = stackMethods.pop;
+  instance.size = stackMethods.size;
+  extend(instance, stackMethods);
+  return instance;
 };
 
-var extend = function(obj, methods){
-  for (var key in methods) {
-    obj[key] = methods[key];
+var extend = function (obj1, obj2) {
+  for (var key in obj2) {
+    obj1[key] = obj2[key];
   }
 };
 
-var stackMethods = {}
-stackMethods.methods = {
-  push: function(value){
-    this.top ++;
-    // console.log(this.top + ' this.top')
-    // console.log(this.storage + ' this.storage')
-    console.log(storage + ' just storage')
-    console.log(this + ' this')
-    this.storage[this.top] = value;
+var stackMethods = {};
 
-  },
-  pop: function(){
-    this.top --
-    var item = this.storage[this.top];
-    delete this.storage[this.top];
-    return item;
-  },
-  size: function(){
-    if (this.top <= 0) {
-      return 0;
-    }
-    return this.top;
+stackMethods.push = function (value) {
+  this.storage[this.top] = value;
+  this.top++;
+};
+
+stackMethods.pop = function () {
+  this.top--;
+  var item = this.storage[this.top];
+  delete this.storage[this.top];
+  return item;
+};
+
+stackMethods.size = function () {
+  if (this.top <= 0) {
+    return 0;
   }
-
+  return this.top;
 };
