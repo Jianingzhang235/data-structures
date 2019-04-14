@@ -13,13 +13,14 @@ var binarySearchTreeMethods = {};
 
 binarySearchTreeMethods.insert = function(value) {
 
+
   if (value < this.value) {
      if(this.left === undefined) {
       this.left = BinarySearchTree(value);
     } else {
       this.left.insert(value);
     }
-  }  else if (value >this.value) {
+  }  else if (value > this.value) {
     if(this.right === undefined) {
       this.right = BinarySearchTree(value);
     } else {
@@ -30,39 +31,41 @@ binarySearchTreeMethods.insert = function(value) {
 
 
 
+
 };
 
 binarySearchTreeMethods.contains = function(value) {
 
-  // var targetTree = BinarySearchTree(value);
-  // var isFound = false;
-  // function checkTree(targetTree){
-  //   if (value === this.value) {
-  //     isFound = true;
-  //   } else if (this.left && value < this.value) {
-  //     checkTree(targetTree.left);
-  //   } else if (this.right && value > this.value) {
-  //     checkTree(targetTree.right);
-  //   }
-  // }
-  // checkTree(this);
-  // return isFound;
-  var isFound = false;
+
   if (value === this.value) {
-    isFound = true;
-  } else if (this.left !==undefined && value < this.value) {
-    this.left.contains(value);
-  } else if (this.right !==undefined && value > this.value) {
-    this.right.contains(value);
+    return true;
+  } else if (value < this.value) {
+    if(!this.left) {
+      return false;
+    }
+      return this.left.contains(value);
+
+  } else if (value > this.value) {
+    if(!this.right) {
+      return false;
+    }
+    return this.right.contains(value);
   }
 
-  return isFound;
 };
 
-binarySearchTreeMethods.depthFirstLog = function() {
-  // log = [];
-  // for ()
-  // log.push(this.value);
+binarySearchTreeMethods.depthFirstLog = function(callBack) {
+
+
+    if(this.left !== undefined) {
+     callBack(this.value);
+   }
+
+   if(this.right !== undefined) {
+     callBack(this.value);
+   }
+
+
 
 };
 
@@ -73,5 +76,3 @@ binarySearchTreeMethods.depthFirstLog = function() {
 //  var tree = BinarySearchTree(23);
 //  tree(11);
 //  tree(9);
-
-
