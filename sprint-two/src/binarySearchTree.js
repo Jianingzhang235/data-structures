@@ -57,11 +57,10 @@ binarySearchTreeMethods.contains = function(value) {
 binarySearchTreeMethods.depthFirstLog = function(callBack) {
 
   callBack(this.value);
-    if(this.left !== undefined) {
+  if(this.left !== undefined) {
      this.left.depthFirstLog(callBack);
    }
-
-   if(this.right !== undefined) {
+  if(this.right !== undefined) {
       this.right.depthFirstLog(callBack);
    }
 
@@ -73,6 +72,4 @@ binarySearchTreeMethods.depthFirstLog = function(callBack) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-//  var tree = BinarySearchTree(23);
-//  tree(11);
-//  tree(9);
+
