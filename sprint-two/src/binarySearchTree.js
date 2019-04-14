@@ -56,13 +56,13 @@ binarySearchTreeMethods.contains = function(value) {
 
 binarySearchTreeMethods.depthFirstLog = function(callBack) {
 
-
+  callBack(this.value);
     if(this.left !== undefined) {
-     callBack(this.value);
+     this.left.depthFirstLog(callBack);
    }
 
    if(this.right !== undefined) {
-     callBack(this.value);
+      this.right.depthFirstLog(callBack);
    }
 
 
